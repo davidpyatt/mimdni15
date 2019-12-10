@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1242px;
+            height: 707px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/IMD_NI_2010_302_450_0.js"></script>
+        <script src="data/IMD_NI_2010_20_1_149_1.js"></script>
+        <script src="data/IMD_NI_2010_150_301_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[54.008122446210194,-8.584853405868136],[55.1836735082148,-5.015589312475589]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_IMD_NI_2010_302_450_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SOA_CODE'] !== null ? Autolinker.link(feature.properties['SOA_CODE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['lgd_name'] !== null ? Autolinker.link(feature.properties['lgd_name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['imd_score_'] !== null ? Autolinker.link(feature.properties['imd_score_'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['imd_rank_2'] !== null ? Autolinker.link(feature.properties['imd_rank_2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_IMD_NI_2010_302_450_0_0(feature) {
+            if (feature.properties['imd_score_'] >= 1.650000 && feature.properties['imd_score_'] <= 13.151429 ) {
+                return {
+                pane: 'pane_IMD_NI_2010_302_450_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,252,245,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['imd_score_'] >= 13.151429 && feature.properties['imd_score_'] <= 24.652857 ) {
+                return {
+                pane: 'pane_IMD_NI_2010_302_450_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,242,215,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['imd_score_'] >= 24.652857 && feature.properties['imd_score_'] <= 36.154286 ) {
+                return {
+                pane: 'pane_IMD_NI_2010_302_450_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(178,224,171,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['imd_score_'] >= 36.154286 && feature.properties['imd_score_'] <= 47.655714 ) {
+                return {
+                pane: 'pane_IMD_NI_2010_302_450_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,200,124,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['imd_score_'] >= 47.655714 && feature.properties['imd_score_'] <= 59.157143 ) {
+                return {
+                pane: 'pane_IMD_NI_2010_302_450_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(61,167,90,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['imd_score_'] >= 59.157143 && feature.properties['imd_score_'] <= 70.658571 ) {
+                return {
+                pane: 'pane_IMD_NI_2010_302_450_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(19,126,58,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['imd_score_'] >= 70.658571 && feature.properties['imd_score_'] <= 82.160000 ) {
+                return {
+                pane: 'pane_IMD_NI_2010_302_450_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,68,27,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_IMD_NI_2010_302_450_0');
+        map.getPane('pane_IMD_NI_2010_302_450_0').style.zIndex = 400;
+        map.getPane('pane_IMD_NI_2010_302_450_0').style['mix-blend-mode'] = 'normal';
+        var layer_IMD_NI_2010_302_450_0 = new L.geoJson(json_IMD_NI_2010_302_450_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_IMD_NI_2010_302_450_0',
+            layerName: 'layer_IMD_NI_2010_302_450_0',
+            pane: 'pane_IMD_NI_2010_302_450_0',
+            onEachFeature: pop_IMD_NI_2010_302_450_0,
+            style: style_IMD_NI_2010_302_450_0_0,
+        });
+        bounds_group.addLayer(layer_IMD_NI_2010_302_450_0);
+        map.addLayer(layer_IMD_NI_2010_302_450_0);
+        function pop_IMD_NI_2010_20_1_149_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SOA_CODE'] !== null ? Autolinker.link(feature.properties['SOA_CODE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['lgd_name'] !== null ? Autolinker.link(feature.properties['lgd_name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['imd_score_'] !== null ? Autolinker.link(feature.properties['imd_score_'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['imd_rank_2'] !== null ? Autolinker.link(feature.properties['imd_rank_2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_IMD_NI_2010_20_1_149_1_0() {
+            return {
+                pane: 'pane_IMD_NI_2010_20_1_149_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,182,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_IMD_NI_2010_20_1_149_1');
+        map.getPane('pane_IMD_NI_2010_20_1_149_1').style.zIndex = 401;
+        map.getPane('pane_IMD_NI_2010_20_1_149_1').style['mix-blend-mode'] = 'normal';
+        var layer_IMD_NI_2010_20_1_149_1 = new L.geoJson(json_IMD_NI_2010_20_1_149_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_IMD_NI_2010_20_1_149_1',
+            layerName: 'layer_IMD_NI_2010_20_1_149_1',
+            pane: 'pane_IMD_NI_2010_20_1_149_1',
+            onEachFeature: pop_IMD_NI_2010_20_1_149_1,
+            style: style_IMD_NI_2010_20_1_149_1_0,
+        });
+        bounds_group.addLayer(layer_IMD_NI_2010_20_1_149_1);
+        map.addLayer(layer_IMD_NI_2010_20_1_149_1);
+        function pop_IMD_NI_2010_150_301_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SOA_CODE'] !== null ? Autolinker.link(feature.properties['SOA_CODE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['imd_rank_2'] !== null ? Autolinker.link(feature.properties['imd_rank_2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_IMD_NI_2010_150_301_2_0() {
+            return {
+                pane: 'pane_IMD_NI_2010_150_301_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,182,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_IMD_NI_2010_150_301_2');
+        map.getPane('pane_IMD_NI_2010_150_301_2').style.zIndex = 402;
+        map.getPane('pane_IMD_NI_2010_150_301_2').style['mix-blend-mode'] = 'normal';
+        var layer_IMD_NI_2010_150_301_2 = new L.geoJson(json_IMD_NI_2010_150_301_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_IMD_NI_2010_150_301_2',
+            layerName: 'layer_IMD_NI_2010_150_301_2',
+            pane: 'pane_IMD_NI_2010_150_301_2',
+            onEachFeature: pop_IMD_NI_2010_150_301_2,
+            style: style_IMD_NI_2010_150_301_2_0,
+        });
+        bounds_group.addLayer(layer_IMD_NI_2010_150_301_2);
+        map.addLayer(layer_IMD_NI_2010_150_301_2);
+        setBounds();
+        </script>
+    </body>
+</html>
